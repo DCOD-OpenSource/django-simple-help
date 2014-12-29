@@ -7,14 +7,19 @@
 from setuptools import setup, find_packages
 
 # metadata
-VERSION = (0, 0, 0)
+VERSION = (0, 1, 0)
 __version__ = '.'.join(map(str, VERSION))
 
 setup(
     name="django-simple-help",
     version=__version__,
     packages=find_packages(),
-    install_requires=['Django', ],
+    install_requires=[
+        'django-modeltranslation==0.8',
+    ],
+    dependency_links=[
+        "git+git@bitbucket.org:DCOD/dcod-common-lib.git#egg=dcl",
+    ],
     author="Alexei Andrushievich",
     author_email="vint21h@vint21h.pp.ua",
     description="Django reusable application providing django project page help",

@@ -23,6 +23,6 @@ class PageHelp(models.Model):
 
     class Meta:
 
-        app_label = 'help'
+        app_label = 'simple_help'
         verbose_name = _(u'page help')
         verbose_name_plural = _(u'page help')

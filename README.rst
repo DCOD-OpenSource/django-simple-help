@@ -15,16 +15,36 @@ Installation
 
 Configuration
 -------------
-Add ``'simple_help'`` to ``settings.INSTALLED_APPS``.
+Add ``'simple_help'`` and ``'modeltranslation'`` to ``settings.INSTALLED_APPS``.
 
     INSTALLED_APPS = (
         ...,
 
+        'modeltranslation',
         'simple_help',
 
         ...,
 
     )
+
+And additionally configure these apps as you want.
+
+This library require additional static libraries, that must be placed in project static directory in ``lib`` subdirectory:
+
+ - jQuery==1.11.1  # http://jquery.com/
+ - bootstrap==3.1.1  # http://getbootstrap.com/
+
+Add to project settings something like:
+
+    INDEX_PAGE_HELP, CONTACT_PAGE_HELP = range(2)
+    SIMPLE_HELP_CHOICES = [
+        [INDEX_PAGE_HELP, u'Index page help'],
+        [CONTACT_PAGE_HELP, u'Contact page help'],
+    ]
+
+If you use bootstrap in you project include ``help_button.html`` template to base template.
+Add to you page view context variable named ``PAGE_HELP`` with value of help you want to show.
+Load ``help_tags`` into page template and call ``page_help`` tag.
 
 Licensing
 ---------

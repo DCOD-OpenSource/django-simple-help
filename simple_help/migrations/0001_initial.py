@@ -9,7 +9,7 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'PageHelp'
-        db.create_table(u'help_pagehelp', (
+        db.create_table(u'simple_help_pagehelp', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('page', self.gf('django.db.models.fields.IntegerField')(default=0, unique=True, db_index=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=255, db_index=True)),
@@ -23,11 +23,9 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal('help', ['PageHelp'])
 
-
     def backwards(self, orm):
         # Deleting model 'PageHelp'
-        db.delete_table(u'help_pagehelp')
-
+        db.delete_table(u'simple_help_pagehelp')
 
     models = {
         'help.pagehelp': {
@@ -45,4 +43,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['help']
+    complete_apps = ['simple_help']

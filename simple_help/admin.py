@@ -5,11 +5,13 @@
 
 from django.contrib import admin
 
+from modeltranslation.translator import translator
 from modeltranslation.admin import TranslationAdmin
 from dcl.admin import ModelTranslationAdminMediaMixin
 
 from simple_help.models import PageHelp
 from simple_help.forms import PageHelpAdminForm
+from simple_help.translation import PageHelpTranslationOptions
 
 __all__ = ['PageHelpAdmin', ]
 
@@ -24,6 +26,11 @@ class PageHelpAdmin(TranslationAdmin, ModelTranslationAdminMediaMixin):
     list_filter = ('page', )
 
     form = PageHelpAdminForm
+
+
+# registering translation options
+translator.register(PageHelp, PageHelpTranslationOptions)
+
 
 # registering admin custom classes
 admin.site.register(PageHelp, PageHelpAdmin)
