@@ -15,12 +15,14 @@ Installation
 
 Configuration
 -------------
-Add ``'simple_help'`` and ``'modeltranslation'`` to ``settings.INSTALLED_APPS``.
+Add ``'simple_help'``, ``'redactor'``, ``'dcl'`` and ``'modeltranslation'`` to ``settings.INSTALLED_APPS``.
 
     INSTALLED_APPS = (
         ...,
 
+        'redactor',
         'modeltranslation',
+        'dcl',
         'simple_help',
 
         ...,

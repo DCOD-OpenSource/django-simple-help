@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import datetime
+from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
@@ -16,26 +16,28 @@ class Migration(SchemaMigration):
             ('title_en', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255, null=True, blank=True)),
             ('title_ru', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255, null=True, blank=True)),
             ('title_uk', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255, null=True, blank=True)),
-            ('text', self.gf('tinymce.models.HTMLField')()),
-            ('text_en', self.gf('tinymce.models.HTMLField')(null=True, blank=True)),
-            ('text_ru', self.gf('tinymce.models.HTMLField')(null=True, blank=True)),
-            ('text_uk', self.gf('tinymce.models.HTMLField')(null=True, blank=True)),
+            ('text', self.gf('django.db.models.fields.TextField')()),
+            ('text_en', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('text_ru', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('text_uk', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
         ))
-        db.send_create_signal('help', ['PageHelp'])
+        db.send_create_signal('simple_help', ['PageHelp'])
+
 
     def backwards(self, orm):
         # Deleting model 'PageHelp'
         db.delete_table(u'simple_help_pagehelp')
 
+
     models = {
-        'help.pagehelp': {
+        'simple_help.pagehelp': {
             'Meta': {'object_name': 'PageHelp'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'page': ('django.db.models.fields.IntegerField', [], {'default': '0', 'unique': 'True', 'db_index': 'True'}),
-            'text': ('tinymce.models.HTMLField', [], {}),
-            'text_en': ('tinymce.models.HTMLField', [], {'null': 'True', 'blank': 'True'}),
-            'text_ru': ('tinymce.models.HTMLField', [], {'null': 'True', 'blank': 'True'}),
-            'text_uk': ('tinymce.models.HTMLField', [], {'null': 'True', 'blank': 'True'}),
+            'text': ('django.db.models.fields.TextField', [], {}),
+            'text_en': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'text_ru': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'text_uk': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
             'title_en': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'title_ru': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255', 'null': 'True', 'blank': 'True'}),
