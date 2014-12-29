@@ -1,0 +1,43 @@
+# django-simple-help
+# simple_help/locale/uk/LC_MESSAGES/django.po
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-simple-help\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-29 10:43+0200\n"
+"PO-Revision-Date: 2014-03-11 16:30+0200\n"
+"Last-Translator: Alexei Andrushievich <vint21h@vint21h.pp.ua>\n"
+"Language-Team: Alexei Andrushievich <vint21h@vint21h.pp.ua>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.6.4\n"
+
+#: models.py:16
+msgid "page"
+msgstr "сторінка"
+
+#: models.py:17
+msgid "help title"
+msgstr "заголовок довідки"
+
+#: models.py:18
+msgid "help text"
+msgstr "текст довідки"
+
+#: models.py:27 models.py:28
+msgid "page help"
+msgstr "довідка по сторінці"
+
+#: templates/simple_help/includes/help_button.html:8
+msgid "Help"
+msgstr "Довідка"
+
+#: templates/simple_help/includes/help_dialog.html:11
+msgid "Close"
+msgstr "Закрити"

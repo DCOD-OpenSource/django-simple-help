@@ -1,0 +1,40 @@
+# django-simple-help
+# simple_help/locale/en/LC_MESSAGES/django.po
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: agrocharts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-29 10:43+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Alexei Andrushievich <vint21h@vint21h.pp.ua>\n"
+"Language-Team: Alexei Andrushievich <vint21h@vint21h.pp.ua>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:16
+msgid "page"
+msgstr "page"
+
+#: models.py:17
+msgid "help title"
+msgstr "help title"
+
+#: models.py:18
+msgid "help text"
+msgstr "help text"
+
+#: models.py:27 models.py:28
+msgid "page help"
+msgstr "page help"
+
+#: templates/simple_help/includes/help_button.html:8
+msgid "Help"
+msgstr "Help"
+
+#: templates/simple_help/includes/help_dialog.html:11
+msgid "Close"
+msgstr "Close"

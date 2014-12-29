@@ -1,0 +1,22 @@
+{# django-simple-help #}
+{# simple_help/templates/simple_help/includes/help_dialog.html #}
+
+{% load i18n %}
+
+{% if page_help %}
+    <div id="id-help-dialog" class="modal fade embed-dialog" tabindex="-1" role="dialog" aria-labelledby="id-help-dialogLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="{% trans "Close" %}">&times;</button>
+                    <h4 id="help-dialogModalLabel" class="modal-title">{{ page_help.title|safe }}</h4>
+                </div>
+
+                <div class="modal-body">
+                    {{ page_help.text|safe }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endif %}

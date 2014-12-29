@@ -1,0 +1,10 @@
+{# django-simple-help #}
+{# simple_help/templates/simple_help/includes/help_button.html #}
+
+{% load i18n %}
+
+{% if page_help %}
+    <li>
+        <a href="#id-help-dialog" title="{% trans "Help" %}" id="id-help-dialog-button" data-toggle="modal" data-target="#id-help-dialog"><i class="glyphicon glyphicon-question-sign"></i></a>
+    </li>
+{% endif %}

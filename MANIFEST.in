@@ -1,0 +1,10 @@
+include README.rst
+include COPYING
+include simple_help/templates/simple_help/includes/help_button.html
+include simple_help/templates/simple_help/includes/help_dialog.html
+include simple_help/locale/en/LC_MESSAGES/django.po
+include simple_help/locale/en/LC_MESSAGES/django.mo
+include simple_help/locale/ru/LC_MESSAGES/django.po
+include simple_help/locale/ru/LC_MESSAGES/django.mo
+include simple_help/locale/uk/LC_MESSAGES/django.po
+include simple_help/locale/uk/LC_MESSAGES/django.mo
