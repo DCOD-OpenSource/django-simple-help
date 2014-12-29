@@ -38,7 +38,7 @@ This library require additional static libraries, that must be placed in project
 
 Add to project settings something like:
 
-    INDEX_PAGE_HELP, CONTACT_PAGE_HELP = range(2)
+    INDEX_PAGE_HELP, CONTACT_PAGE_HELP = range(1, 3)
     SIMPLE_HELP_CHOICES = [
         [INDEX_PAGE_HELP, u'Index page help'],
         [CONTACT_PAGE_HELP, u'Contact page help'],
