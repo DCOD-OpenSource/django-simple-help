@@ -33,8 +33,8 @@ And additionally configure these apps as you want.
 
 This library require additional static libraries, that must be placed in project static directory in ``lib`` subdirectory:
 
- - jQuery==1.11.1  # http://jquery.com/
- - bootstrap==3.1.1  # http://getbootstrap.com/
+ - jQuery==1.11.2  # http://jquery.com/
+ - bootstrap==3.3.2  # http://getbootstrap.com/
 
 Add to project settings something like:
 
