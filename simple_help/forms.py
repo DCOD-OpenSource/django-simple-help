@@ -21,4 +21,4 @@ class PageHelpAdminForm(forms.ModelForm):
 
     class Meta:
 
-        widgets = dict([(u'text_%s' % language, RedactorEditorWithoutJQuery()) for language in dict(settings.LANGUAGES).keys()])
+        widgets = dict([(u'text_%s' % language.replace('-', '_'), RedactorEditorWithoutJQuery()) for language in dict(settings.LANGUAGES).keys()])
