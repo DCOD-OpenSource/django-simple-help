@@ -1,0 +1,40 @@
+# django-simple-help
+# simple_help/locale/zh-cn/LC_MESSAGES/django.po
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-simple-help\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-29 10:43+0200\n"
+"PO-Revision-Date: 2014-03-11 16:30+0200\n"
+"Last-Translator: Alexei Andrushievich <vint21h@vint21h.pp.ua>\n"
+"Language-Team: Alexei Andrushievich <vint21h@vint21h.pp.ua>\n"
+"Language: zh-cn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:18
+msgid "page"
+msgstr ""
+
+#: models.py:19
+msgid "help title"
+msgstr ""
+
+#: models.py:20
+msgid "help text"
+msgstr ""
+
+#: models.py:29 models.py:30
+msgid "page help"
+msgstr ""
+
+#: templates/simple_help/includes/help_button.html:8
+msgid "Help"
+msgstr ""
+
+#: templates/simple_help/includes/help_dialog.html:11
+msgid "Close"
+msgstr ""
