@@ -8,3 +8,5 @@ include simple_help/locale/ru/LC_MESSAGES/django.po
 include simple_help/locale/ru/LC_MESSAGES/django.mo
 include simple_help/locale/uk/LC_MESSAGES/django.po
 include simple_help/locale/uk/LC_MESSAGES/django.mo
+include simple_help/locale/zh-cn/LC_MESSAGES/django.po
+include simple_help/locale/zh-cn/LC_MESSAGES/django.mo
