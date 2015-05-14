@@ -10,4 +10,10 @@ __all__ = [
     'settings',
     'admin',
     'forms',
+    'migrations',
+    'south_migrations',
+    'apps',
+    'default_app_config',
 ]
+
+default_app_config = 'simple_help.apps.SimpleHelpConfig'

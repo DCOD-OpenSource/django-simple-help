@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+
+# django-simple-help
+# simple_help/south_migrations/0002_auto__add_field_pagehelp_title_zh_cn__add_field_pagehelp_text_zh_cn.py
+
 from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import SchemaMigration
@@ -18,14 +22,12 @@ class Migration(SchemaMigration):
                       self.gf('django.db.models.fields.TextField')(null=True, blank=True),
                       keep_default=False)
 
-
     def backwards(self, orm):
         # Deleting field 'PageHelp.title_zh_cn'
         db.delete_column(u'simple_help_pagehelp', 'title_zh_cn')
 
         # Deleting field 'PageHelp.text_zh_cn'
         db.delete_column(u'simple_help_pagehelp', 'text_zh_cn')
-
 
     models = {
         'simple_help.pagehelp': {
