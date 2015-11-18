@@ -4,7 +4,7 @@
 {% load i18n %}
 
 {% if page_help %}
-    <div id="id-help-dialog" class="modal fade help-dialog" tabindex="-1" role="dialog" aria-labelledby="id-help-dialogLabel" aria-hidden="true">
+    <div id="id-help-dialog" class="modal fade help-dialog{% if page_help_modal_additional_classes %}{% for cls in page_help_modal_additional_classes %} {{ cls }}{% endif %}" tabindex="-1" role="dialog" aria-labelledby="id-help-dialogLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
