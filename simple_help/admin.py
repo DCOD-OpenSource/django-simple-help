@@ -6,8 +6,7 @@
 from django.contrib import admin
 
 from modeltranslation.translator import translator
-from modeltranslation.admin import TranslationAdmin
-from dcl.admin import ModelTranslationAdminMediaMixin
+from modeltranslation.admin import TabbedDjangoJqueryTranslationAdmin
 
 from simple_help.models import PageHelp
 from simple_help.forms import PageHelpAdminForm
@@ -16,7 +15,7 @@ from simple_help.translation import PageHelpTranslationOptions
 __all__ = ['PageHelpAdmin', ]
 
 
-class PageHelpAdmin(TranslationAdmin, ModelTranslationAdminMediaMixin):
+class PageHelpAdmin(TabbedDjangoJqueryTranslationAdmin):
     """
     Customize PageHelp model for admin area.
     """

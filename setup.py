@@ -7,7 +7,7 @@
 from setuptools import setup, find_packages
 
 # metadata
-VERSION = (0, 3, 4)
+VERSION = (0, 4, 0)
 __version__ = '.'.join(map(str, VERSION))
 
 setup(
@@ -17,9 +17,6 @@ setup(
     install_requires=[
         'django-modeltranslation==0.10.1',
         'django-wysiwyg-redactor==0.4.2.1',
-    ],
-    dependency_links=[
-        "git+git@bitbucket.org:DCOD/dcod-common-lib.git@0.4.5#egg=dcl",
     ],
     author="Alexei Andrushievich",
     author_email="vint21h@vint21h.pp.ua",
