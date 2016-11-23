@@ -12,7 +12,9 @@ from simple_help.models import PageHelp
 from simple_help.forms import PageHelpAdminForm
 from simple_help.translation import PageHelpTranslationOptions
 
-__all__ = ['PageHelpAdmin', ]
+__all__ = [
+    "PageHelpAdmin",
+]
 
 
 class PageHelpAdmin(TabbedDjangoJqueryTranslationAdmin):
@@ -20,9 +22,9 @@ class PageHelpAdmin(TabbedDjangoJqueryTranslationAdmin):
     Customize PageHelp model for admin area.
     """
 
-    list_display = ('page', 'title', )
-    search_fields = ('title', )
-    list_filter = ('page', )
+    list_display = ["page", "title", ]
+    search_fields = ["title", ]
+    list_filter = ["page", ]
 
     form = PageHelpAdminForm
 

@@ -3,12 +3,17 @@
 # django-simple-help
 # simple_help/apps.py
 
+from __future__ import unicode_literals
+
 from django.apps import AppConfig
 
-__all__ = ['SimpleHelpConfig', ]
+
+__all__ = [
+    "SimpleHelpConfig",
+]
 
 
 class SimpleHelpConfig(AppConfig):
 
-    name = u'simple_help'
-    verbose_name = u"Simple help"
+    name = "simple_help"
+    verbose_name = "Simple help"

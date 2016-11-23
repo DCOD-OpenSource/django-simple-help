@@ -3,4 +3,6 @@
 # django-simple-help
 # simple_help/templatetags/__init__.py
 
-__all__ = ['help_tags', ]
+__all__ = [
+    "help_tags",
+]

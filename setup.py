@@ -4,26 +4,29 @@
 # django-simple-help
 # setup.py
 
+from __future__ import unicode_literals
+
 from setuptools import setup, find_packages
+
 
 # metadata
 VERSION = (0, 4, 0)
-__version__ = '.'.join(map(str, VERSION))
+__version__ = ".".join(map(str, VERSION))
 
 setup(
     name="django-simple-help",
     version=__version__,
     packages=find_packages(),
     install_requires=[
-        'django-modeltranslation==0.10.1',
-        'django-wysiwyg-redactor==0.4.2.1',
+        "django-modeltranslation==0.10.1",
+        "django-wysiwyg-redactor==0.4.2.1",
     ],
     author="Alexei Andrushievich",
     author_email="vint21h@vint21h.pp.ua",
     description="Django reusable application providing django project page help",
     license="GPLv3 or later",
     url="https://github.com/vint21h/django-simple-help",
-    download_url="https://github.com/vint21h/django-simple-help/archive/%s.tar.gz" % __version__,
+    download_url="https://github.com/vint21h/django-simple-help/archive/{}.tar.gz".format(__version__),
     zip_safe=False,
     include_package_data=True,
     classifiers=[

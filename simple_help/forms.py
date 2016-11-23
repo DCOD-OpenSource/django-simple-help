@@ -3,6 +3,8 @@
 # django-simple-help
 # simple_help/forms.py
 
+from __future__ import unicode_literals
+
 from django import forms
 from django.conf import settings
 
@@ -10,7 +12,9 @@ from annoying.decorators import autostrip
 from dcl.widgets import RedactorEditorWithoutJQuery
 
 
-__all__ = ['PageHelpAdminForm', ]
+__all__ = [
+    "PageHelpAdminForm",
+]
 
 
 @autostrip
@@ -21,4 +25,4 @@ class PageHelpAdminForm(forms.ModelForm):
 
     class Meta:
 
-        widgets = dict([(u'text_%s' % language.replace('-', '_'), RedactorEditorWithoutJQuery()) for language in dict(settings.LANGUAGES).keys()])
+        widgets = dict([("text_{}".format(language.replace("-", "_")), RedactorEditorWithoutJQuery()) for language in list(dict(settings.LANGUAGES).keys())])

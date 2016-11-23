@@ -5,7 +5,9 @@
 
 from modeltranslation.translator import TranslationOptions
 
-__all__ = ['PageHelpTranslationOptions', ]
+__all__ = [
+    "PageHelpTranslationOptions",
+]
 
 
 class PageHelpTranslationOptions(TranslationOptions):
@@ -13,4 +15,4 @@ class PageHelpTranslationOptions(TranslationOptions):
     PageHelp model translation options.
     """
 
-    fields = ('title', 'text', )
+    fields = ["title", "text", ]
