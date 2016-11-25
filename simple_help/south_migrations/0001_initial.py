@@ -3,10 +3,14 @@
 # django-simple-help
 # simple_help/south_migrations/0001_initial.py
 
+from __future__ import unicode_literals
+
+from django.db import models
+from django.conf import settings
+
 from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import SchemaMigration
-from django.db import models
 
 
 class Migration(SchemaMigration):
@@ -17,14 +21,10 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('page', self.gf('django.db.models.fields.IntegerField')(default=0, unique=True, db_index=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=255, db_index=True)),
-            ('title_en', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255, null=True, blank=True)),
-            ('title_ru', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255, null=True, blank=True)),
-            ('title_uk', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255, null=True, blank=True)),
             ('text', self.gf('django.db.models.fields.TextField')()),
-            ('text_en', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('text_ru', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('text_uk', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-        ))
+        ) + tuple([('title_{language}'.format(**{"language": language, }), self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255, null=True, blank=True)) for language in list(dict(settings.LANGUAGES).keys())])
+          + tuple([('text_{language}'.format(**{"language":language, }), self.gf('django.db.models.fields.TextField')(null=True, blank=True)) for language in list(dict(settings.LANGUAGES).keys())])
+        )
         db.send_create_signal('simple_help', ['PageHelp'])
 
     def backwards(self, orm):
@@ -37,14 +37,19 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'page': ('django.db.models.fields.IntegerField', [], {'default': '0', 'unique': 'True', 'db_index': 'True'}),
             'text': ('django.db.models.fields.TextField', [], {}),
-            'text_en': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'text_ru': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'text_uk': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
-            'title_en': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255', 'null': 'True', 'blank': 'True'}),
-            'title_ru': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255', 'null': 'True', 'blank': 'True'}),
-            'title_uk': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255', 'null': 'True', 'blank': 'True'})
         }
     }
 
     complete_apps = ['simple_help']
+
+    text_fields = {}
+    for language in list(dict(settings.LANGUAGES).keys()):
+        text_fields.update({'text_{language}'.format(**{"language": language, }):('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'})})
+
+    title_fields = {}
+    for language in list(dict(settings.LANGUAGES).keys()):
+        title_fields.update({'title_{language}'.format(**{"language": language, }):('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'})})
+
+    models['simple_help.pagehelp'].update(text_fields)
+    models['simple_help.pagehelp'].update(title_fields)

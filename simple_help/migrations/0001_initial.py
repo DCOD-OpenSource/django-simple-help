@@ -12,11 +12,12 @@ from django.db import (
 from django.conf import settings
 
 
+MODELTRANSLATION_FIELDS = [("title_{language}".format(**{"language": language, }), models.CharField(max_length=255, null=True, verbose_name="help title", db_index=True)) for language in list(dict(settings.LANGUAGES).keys())] + [("text_{language}".format(**{"language": language, }), models.TextField(null=True, verbose_name="help text")) for language in list(dict(settings.LANGUAGES).keys())] if len(getattr(settings, "LANGUAGES", [])) and "modeltranslation" in getattr(settings, "INSTALLED_APPS", []) else []
+
+
 class Migration(migrations.Migration):
 
-    dependencies = [
-    ]
-
+    dependencies = []
     operations = [
         migrations.CreateModel(
             name="PageHelp",
@@ -25,11 +26,7 @@ class Migration(migrations.Migration):
                 ("page", models.IntegerField(default=0, unique=True, verbose_name="page", db_index=True)),
                 ("title", models.CharField(max_length=255, verbose_name="help title", db_index=True)),
                 ("text", models.TextField(verbose_name="help text")),
-            ] + [
-                ("title_{language}".format(**{"language": language, }), models.CharField(max_length=255, null=True, verbose_name="help title", db_index=True)) for language in list(dict(settings.LANGUAGES).keys())
-            ] + [
-                ("text_{language}".format(**{"language": language, }), models.TextField(null=True, verbose_name="help text")) for language in list(dict(settings.LANGUAGES).keys())
-            ],
+            ] + MODELTRANSLATION_FIELDS,
             options={
                 "verbose_name": "page help",
                 "verbose_name_plural": "page help",

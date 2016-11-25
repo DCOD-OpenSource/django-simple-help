@@ -10,15 +10,14 @@ from setuptools import setup, find_packages
 # metadata
 VERSION = (0, 0, 0)
 __version__ = ".".join(map(str, VERSION))
-
 setup(
     name="django-simple-help",
     version=__version__,
     packages=find_packages(),
     install_requires=[
-        "django-modeltranslation==0.12",
-        "django-wysiwyg-redactor==0.4.9.1",
         "django-annoying==0.10.3",
+        "django-wysiwyg-redactor==0.4.9.1",
+        "django-modeltranslation==0.12",
     ],
     author="Alexei Andrushievich",
     author_email="vint21h@vint21h.pp.ua",
@@ -37,3 +36,4 @@ setup(
         "Topic :: Utilities",
     ]
 )
+
