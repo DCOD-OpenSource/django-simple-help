@@ -10,6 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from simple_help.settings import PAGE_HELP_CHOICES
 
+
 __all__ = [
     "PageHelp",
 ]

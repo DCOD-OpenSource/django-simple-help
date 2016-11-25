@@ -1,3 +1,6 @@
+# django-simple-help
+# MANIFEST.in
+
 include README.rst
 include COPYING
 include simple_help/templates/simple_help/includes/help_button.html

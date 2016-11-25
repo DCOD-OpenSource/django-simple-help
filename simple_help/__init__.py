@@ -3,6 +3,9 @@
 # django-simple-help
 # simple_help/__init__.py
 
+from __future__ import unicode_literals
+
+
 __all__ = [
     "models",
     "templatetags",
@@ -16,4 +19,4 @@ __all__ = [
     "default_app_config",
 ]
 
-default_app_config = "simple_help.apps.SimpleHelpConfig"
+default_app_config = "simple_help.apps.Config"

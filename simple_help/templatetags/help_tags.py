@@ -3,15 +3,19 @@
 # django-simple-help
 # simple_help/templatetags/help_tags.py
 
+from __future__ import unicode_literals
+
 from django import template
 
 from annoying.functions import get_object_or_None
 
 from simple_help.models import PageHelp
 
+
 __all__ = [
     "page_help",
 ]
+
 
 register = template.Library()
 

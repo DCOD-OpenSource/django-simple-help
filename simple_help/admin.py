@@ -3,6 +3,8 @@
 # django-simple-help
 # simple_help/admin.py
 
+from __future__ import unicode_literals
+
 from django.contrib import admin
 
 from modeltranslation.translator import translator
@@ -11,6 +13,7 @@ from modeltranslation.admin import TabbedDjangoJqueryTranslationAdmin
 from simple_help.models import PageHelp
 from simple_help.forms import PageHelpAdminForm
 from simple_help.translation import PageHelpTranslationOptions
+
 
 __all__ = [
     "PageHelpAdmin",

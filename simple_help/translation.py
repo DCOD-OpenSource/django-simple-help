@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
 # django-simple-help
-# simple_help/translation/.py
+# simple_help/translation.py
+
+from __future__ import unicode_literals
 
 from modeltranslation.translator import TranslationOptions
+
 
 __all__ = [
     "PageHelpTranslationOptions",
