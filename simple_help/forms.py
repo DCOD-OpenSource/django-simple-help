@@ -9,7 +9,7 @@ from django import forms
 from django.conf import settings
 
 from annoying.decorators import autostrip
-from dcl.widgets import RedactorEditorWithoutJQuery
+from redactor.widgets import RedactorEditor
 
 
 __all__ = [
@@ -25,4 +25,4 @@ class PageHelpAdminForm(forms.ModelForm):
 
     class Meta:
 
-        widgets = dict([("text_{language}".format(**{"language": language.replace("-", "_"), }), RedactorEditorWithoutJQuery()) for language in list(dict(settings.LANGUAGES).keys())])
+        widgets = dict([("text_{language}".format(**{"language": language.replace("-", "_"), }), RedactorEditor()) for language in list(dict(settings.LANGUAGES).keys())])
