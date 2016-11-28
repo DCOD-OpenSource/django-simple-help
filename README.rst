@@ -23,8 +23,6 @@ Add ``"simple_help"`` and ``"redactor"`` to ``settings.INSTALLED_APPS``.
 
         "redactor",
 
-        "modeltranslation",
-
         "simple_help",
 
         ...,
