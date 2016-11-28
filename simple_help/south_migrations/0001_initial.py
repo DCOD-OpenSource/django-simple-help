@@ -13,43 +13,58 @@ from south.db import db
 from south.v2 import SchemaMigration
 
 
+def generate_lang_fields(self):
+    """
+    Helper function for generating multi language fields
+    :param: self (Migration instance)
+    :return: tuple with language fields
+    """
+
+    model_translation_title = tuple([("title_{language}".format(**{"language": language, }), self.gf("django.db.models.fields.CharField")(db_index=True, max_length=255, null=True, blank=True))
+                                    for language in list(dict(settings.LANGUAGES).keys())])
+    model_translation_text = tuple([("text_{language}".format(**{"language": language, }), self.gf("django.db.models.fields.TextField")(null=True, blank=True))
+                                   for language in list(dict(settings.LANGUAGES).keys())])
+
+    return model_translation_title + model_translation_text
+
+
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'PageHelp'
-        db.create_table(u'simple_help_pagehelp', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('page', self.gf('django.db.models.fields.IntegerField')(default=0, unique=True, db_index=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=255, db_index=True)),
-            ('text', self.gf('django.db.models.fields.TextField')()),
-        ) + tuple([('title_{language}'.format(**{"language": language, }), self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255, null=True, blank=True)) for language in list(dict(settings.LANGUAGES).keys())])
-          + tuple([('text_{language}'.format(**{"language":language, }), self.gf('django.db.models.fields.TextField')(null=True, blank=True)) for language in list(dict(settings.LANGUAGES).keys())])
+        # Adding model "PageHelp"
+        db.create_table("simple_help_pagehelp", (
+                ("id", self.gf("django.db.models.fields.AutoField")(primary_key=True)),
+                ("page", self.gf("django.db.models.fields.IntegerField")(default=0, unique=True, db_index=True)),
+                ("title", self.gf("django.db.models.fields.CharField")(max_length=255, db_index=True)),
+                ("text", self.gf("django.db.models.fields.TextField")()),
+            ) + generate_lang_fields(self)
         )
-        db.send_create_signal('simple_help', ['PageHelp'])
+
+        db.send_create_signal("simple_help", ["PageHelp"])
 
     def backwards(self, orm):
-        # Deleting model 'PageHelp'
-        db.delete_table(u'simple_help_pagehelp')
+        # Deleting model "PageHelp"
+        db.delete_table(u"simple_help_pagehelp")
 
     models = {
-        'simple_help.pagehelp': {
-            'Meta': {'object_name': 'PageHelp'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'page': ('django.db.models.fields.IntegerField', [], {'default': '0', 'unique': 'True', 'db_index': 'True'}),
-            'text': ('django.db.models.fields.TextField', [], {}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
+        "simple_help.pagehelp": {
+            "Meta": {"object_name": "PageHelp"},
+            "id": ("django.db.models.fields.AutoField", [], {"primary_key": "True"}),
+            "page": ("django.db.models.fields.IntegerField", [], {"default": "0", "unique": "True", "db_index": "True"}),
+            "text": ("django.db.models.fields.TextField", [], {}),
+            "title": ("django.db.models.fields.CharField", [], {"max_length": "255", "db_index": "True"}),
         }
     }
 
-    complete_apps = ['simple_help']
+    complete_apps = ["simple_help"]
 
     text_fields = {}
     for language in list(dict(settings.LANGUAGES).keys()):
-        text_fields.update({'text_{language}'.format(**{"language": language, }):('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'})})
+        text_fields.update({"text_{language}".format(**{"language": language, }): ("django.db.models.fields.TextField", [], {"null": "True", "blank": "True"})})
 
     title_fields = {}
     for language in list(dict(settings.LANGUAGES).keys()):
-        title_fields.update({'title_{language}'.format(**{"language": language, }):('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'})})
+        title_fields.update({"title_{language}".format(**{"language": language, }): ("django.db.models.fields.TextField", [], {"null": "True", "blank": "True"})})
 
-    models['simple_help.pagehelp'].update(text_fields)
-    models['simple_help.pagehelp'].update(title_fields)
+    models["simple_help.pagehelp"].update(text_fields)
+    models["simple_help.pagehelp"].update(title_fields)
