@@ -9,7 +9,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="{% trans "Close" %}">&times;</button>
-                    <h4 id="help-dialogModalLabel" class="modal-title">{{ page_help.title|safe }}</h4>
+                    <h4 id="help-dialogModalLabel" class="modal-title">
+                        {{ page_help.title|safe }}
+                    </h4>
                 </div>
                 <div class="modal-body">
                     {{ page_help.text|safe }}

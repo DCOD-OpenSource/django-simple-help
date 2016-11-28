@@ -4,53 +4,67 @@
 A django-simple-help documentation
 ==================================
 
-    *django-simple-help is a django reusable application providing django project page help*
+    *django-simple-help is a django reusable application providing page help*
 
 .. contents::
 
 Installation
 ------------
-* Obtain your copy of source code from git repository: ``git clone https://bitbucket.org/DCOD/django-simple-help.git``.
+* Obtain your copy of source code from git repository: ``git clone https://github.com/DCOD-OpenSource/django-simple-help.git``.
 * Run ``python ./setup.py install`` from repository source tree or unpacked archive. Or use pip: ``pip install django-simple-help``.
+* If you want use simple help with ``django-modeltranslation`` - install with additional requirements ``pip install django-simple-help-modeltranslation``.
 
 Configuration
 -------------
-Add ``"simple_help"``, ``"redactor"`` and ``"modeltranslation"`` to ``settings.INSTALLED_APPS``.
+Add ``"simple_help"`` and ``"redactor"`` to ``settings.INSTALLED_APPS``.
 
     INSTALLED_APPS = (
         ...,
 
         "redactor",
+
         "modeltranslation",
+
         "simple_help",
 
         ...,
 
     )
 
+If you want use simple help with ``django-modeltranslation`` - add ``"modeltranslation"`` to ``settings.INSTALLED_APPS``.
+
+    INSTALLED_APPS = (
+        ...,
+
+        "modeltranslation",
+
+        ...,
+
+    )
+
+
 And additionally configure these apps as you want.
-
-This library require additional static libraries, that must be placed in project static directory in ``lib`` subdirectory:
-
- - jQuery  # http://jquery.com/
- - bootstrap  # http://getbootstrap.com/
 
 Add to project settings something like:
 
     INDEX_PAGE_HELP, CONTACT_PAGE_HELP = range(1, 3)
+
     SIMPLE_HELP_CHOICES = [
+
         [INDEX_PAGE_HELP, "Index page help"],
+
         [CONTACT_PAGE_HELP, "Contact page help"],
+
     ]
 
-If you use bootstrap in you project include ``help_button.html`` template to base template.
 Add to you page view context variable named ``PAGE_HELP`` with value of help you want to show.
 Load ``help_tags`` into page template and call ``page_help`` tag.
+If you use `Bootstrap <https://getbootstrap.com/>`_ in you project include ``simple_help/includes/help_button.html`` and ``simple_help/includes/help_dialog.html`` templates to base template, else override default templates as you wish.
 
 Licensing
 ---------
-django-simple-help is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-For complete license text see COPYING file.
+django-simple-help uses the MIT license. Please check the MIT-LICENSE file for more details.
+
 
 Contacts
 --------

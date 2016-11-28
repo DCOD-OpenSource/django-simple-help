@@ -2,7 +2,7 @@
 # MANIFEST.in
 
 include README.rst
-include COPYING
+include MIT-LICENSE
 include AUTHORS
 include simple_help/templates/simple_help/includes/help_button.html
 include simple_help/templates/simple_help/includes/help_dialog.html
