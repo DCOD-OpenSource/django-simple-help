@@ -24,9 +24,14 @@ register = template.Library()
 def page_help(context):
     """
     Page help.
+    Args:
+        context (django.template.RequestContext): request context.
+    Returns:
+        simple_help.models.PageHelp or None: PageHelp model instance or None.
     """
 
     if context.get("PAGE_HELP", None):
+
         return get_object_or_None(PageHelp, page=context["PAGE_HELP"])
     else:
 

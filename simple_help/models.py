@@ -17,6 +17,9 @@ __all__ = [
 
 
 class PageHelp(models.Model):
+    """
+    Help model.
+    """
 
     HELP_CHOICES = PAGE_HELP_CHOICES
 
@@ -27,6 +30,10 @@ class PageHelp(models.Model):
     def __str__(self):
 
         return self.title
+
+    def __unicode__(self):
+
+        return self.__str__()
 
     class Meta:
 

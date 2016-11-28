@@ -15,14 +15,14 @@ Installation
 
 Configuration
 -------------
-Add ``'simple_help'``, ``'redactor'`` and ``'modeltranslation'`` to ``settings.INSTALLED_APPS``.
+Add ``"simple_help"``, ``"redactor"`` and ``"modeltranslation"`` to ``settings.INSTALLED_APPS``.
 
     INSTALLED_APPS = (
         ...,
 
-        'redactor',
-        'modeltranslation',
-        'simple_help',
+        "redactor",
+        "modeltranslation",
+        "simple_help",
 
         ...,
 
@@ -32,15 +32,15 @@ And additionally configure these apps as you want.
 
 This library require additional static libraries, that must be placed in project static directory in ``lib`` subdirectory:
 
- - jQuery==1.11.2  # http://jquery.com/
- - bootstrap==3.3.2  # http://getbootstrap.com/
+ - jQuery  # http://jquery.com/
+ - bootstrap  # http://getbootstrap.com/
 
 Add to project settings something like:
 
     INDEX_PAGE_HELP, CONTACT_PAGE_HELP = range(1, 3)
     SIMPLE_HELP_CHOICES = [
-        [INDEX_PAGE_HELP, u'Index page help'],
-        [CONTACT_PAGE_HELP, u'Contact page help'],
+        [INDEX_PAGE_HELP, "Index page help"],
+        [CONTACT_PAGE_HELP, "Contact page help"],
     ]
 
 If you use bootstrap in you project include ``help_button.html`` template to base template.
@@ -54,6 +54,8 @@ For complete license text see COPYING file.
 
 Contacts
 --------
-**Project Website**: https://bitbucket.org/DCOD/django-simple-help
+**Project Website**: https://github.com/DCOD-OpenSource/django-simple-help/
 
 **Author**: Alexei Andrushievich <vint21h@vint21h.pp.ua>
+
+For other authors list see AUTHORS file.

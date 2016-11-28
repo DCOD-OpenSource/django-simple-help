@@ -11,6 +11,8 @@ from django.conf import settings
 from annoying.decorators import autostrip
 from redactor.widgets import RedactorEditor
 
+from simple_help.utils import modeltranslation
+
 
 __all__ = [
     "PageHelpAdminForm",
@@ -25,4 +27,9 @@ class PageHelpAdminForm(forms.ModelForm):
 
     class Meta:
 
-        widgets = dict([("text_{language}".format(**{"language": language.replace("-", "_"), }), RedactorEditor()) for language in list(dict(settings.LANGUAGES).keys())])
+        if modeltranslation():
+            widgets = dict([("text_{language}".format(**{"language": language.replace("-", "_"), }), RedactorEditor()) for language in list(dict(settings.LANGUAGES).keys())])
+        else:
+            widgets = {
+                "text": RedactorEditor()
+            }

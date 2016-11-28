@@ -12,20 +12,26 @@ from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import SchemaMigration
 
+from simple_help.utils import modeltranslation
 
-def generate_lang_fields(self):
+
+def modeltranslation_fields(self):
     """
-    Helper function for generating multi language fields
-    :param: self (Migration instance)
-    :return: tuple with language fields
+    Helper function for generating modeltranslation multi language fields.
+    Args:
+        self: (south.v2.SchemaMigration): Migrations instance.
+    Returns:
+        tuple: tuple with modeltranslation fields.
     """
 
-    model_translation_title = tuple([("title_{language}".format(**{"language": language, }), self.gf("django.db.models.fields.CharField")(db_index=True, max_length=255, null=True, blank=True))
-                                    for language in list(dict(settings.LANGUAGES).keys())])
-    model_translation_text = tuple([("text_{language}".format(**{"language": language, }), self.gf("django.db.models.fields.TextField")(null=True, blank=True))
-                                   for language in list(dict(settings.LANGUAGES).keys())])
+    if modeltranslation():
+        title = tuple([("title_{language}".format(**{"language": language, }), self.gf("django.db.models.fields.CharField")(db_index=True, max_length=255, null=True, blank=True)) for language in list(dict(settings.LANGUAGES).keys())])
+        text = tuple([("text_{language}".format(**{"language": language, }), self.gf("django.db.models.fields.TextField")(null=True, blank=True)) for language in list(dict(settings.LANGUAGES).keys())])
 
-    return model_translation_title + model_translation_text
+        return title + text
+    else:
+
+        return tuple()
 
 
 class Migration(SchemaMigration):
@@ -37,7 +43,7 @@ class Migration(SchemaMigration):
                 ("page", self.gf("django.db.models.fields.IntegerField")(default=0, unique=True, db_index=True)),
                 ("title", self.gf("django.db.models.fields.CharField")(max_length=255, db_index=True)),
                 ("text", self.gf("django.db.models.fields.TextField")()),
-            ) + generate_lang_fields(self)
+            ) + modeltranslation_fields(self)
         )
 
         db.send_create_signal("simple_help", ["PageHelp"])
@@ -56,15 +62,10 @@ class Migration(SchemaMigration):
         }
     }
 
+    if modeltranslation():
+        for language in list(dict(settings.LANGUAGES).keys()):
+            # add modeltranslation fields
+            models["simple_help.pagehelp"].update({"title_{language}".format(**{"language": language, }): ("django.db.models.fields.TextField", [], {"null": "True", "blank": "True"})})
+            models["simple_help.pagehelp"].update({"text_{language}".format(**{"language": language, }): ("django.db.models.fields.TextField", [], {"null": "True", "blank": "True"})})
+
     complete_apps = ["simple_help"]
-
-    text_fields = {}
-    for language in list(dict(settings.LANGUAGES).keys()):
-        text_fields.update({"text_{language}".format(**{"language": language, }): ("django.db.models.fields.TextField", [], {"null": "True", "blank": "True"})})
-
-    title_fields = {}
-    for language in list(dict(settings.LANGUAGES).keys()):
-        title_fields.update({"title_{language}".format(**{"language": language, }): ("django.db.models.fields.TextField", [], {"null": "True", "blank": "True"})})
-
-    models["simple_help.pagehelp"].update(text_fields)
-    models["simple_help.pagehelp"].update(title_fields)

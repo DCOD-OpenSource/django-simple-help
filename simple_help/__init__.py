@@ -16,7 +16,9 @@ __all__ = [
     "migrations",
     "south_migrations",
     "apps",
+    "utils",
     "default_app_config",
 ]
+
 
 default_app_config = "simple_help.apps.Config"

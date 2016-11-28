@@ -4,7 +4,10 @@
 # django-simple-help
 # setup.py
 
-from setuptools import setup, find_packages
+from setuptools import (
+    setup,
+    find_packages,
+)
 
 
 # metadata
@@ -17,14 +20,16 @@ setup(
     install_requires=[
         "django-annoying==0.10.3",
         "django-wysiwyg-redactor==0.4.9.1",
-        "django-modeltranslation==0.12",
     ],
+    extras_require={
+        "modeltranslation": ["django-modeltranslation==0.12", ],
+    },
     author="Alexei Andrushievich",
     author_email="vint21h@vint21h.pp.ua",
     description="Django reusable application providing django project page help",
     license="GPLv3 or later",
-    url="https://github.com/vint21h/django-simple-help",
-    download_url="https://github.com/vint21h/django-simple-help/archive/{}.tar.gz".format(__version__),
+    url="https://github.com/DCOD-OpenSource/django-simple-help/",
+    download_url="https://github.com/DCOD-OpenSource/django-simple-help/archive/{}.tar.gz".format(__version__),
     zip_safe=False,
     include_package_data=True,
     classifiers=[
@@ -36,4 +41,3 @@ setup(
         "Topic :: Utilities",
     ]
 )
-

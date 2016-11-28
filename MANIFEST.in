@@ -3,6 +3,7 @@
 
 include README.rst
 include COPYING
+include AUTHORS
 include simple_help/templates/simple_help/includes/help_button.html
 include simple_help/templates/simple_help/includes/help_dialog.html
 include simple_help/locale/en/LC_MESSAGES/django.po

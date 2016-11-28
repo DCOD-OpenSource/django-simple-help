@@ -11,8 +11,10 @@ from django.db import (
 )
 from django.conf import settings
 
+from simple_help.utils import modeltranslation
 
-MODELTRANSLATION_FIELDS = [("title_{language}".format(**{"language": language, }), models.CharField(max_length=255, null=True, verbose_name="help title", db_index=True)) for language in list(dict(settings.LANGUAGES).keys())] + [("text_{language}".format(**{"language": language, }), models.TextField(null=True, verbose_name="help text")) for language in list(dict(settings.LANGUAGES).keys())] if len(getattr(settings, "LANGUAGES", [])) and "modeltranslation" in getattr(settings, "INSTALLED_APPS", []) else []
+
+MODELTRANSLATION_FIELDS = [("title_{language}".format(**{"language": language, }), models.CharField(max_length=255, null=True, verbose_name="help title", db_index=True)) for language in list(dict(settings.LANGUAGES).keys())] + [("text_{language}".format(**{"language": language, }), models.TextField(null=True, verbose_name="help text")) for language in list(dict(settings.LANGUAGES).keys())] if modeltranslation() else []
 
 
 class Migration(migrations.Migration):

@@ -15,7 +15,7 @@ __all__ = [
 
 class PageHelpTranslationOptions(TranslationOptions):
     """
-    PageHelp model translation options.
+    PageHelp modeltranslation options.
     """
 
     fields = ["title", "text", ]

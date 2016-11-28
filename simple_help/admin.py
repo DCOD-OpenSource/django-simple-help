@@ -7,12 +7,19 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from modeltranslation.translator import translator
-from modeltranslation.admin import TabbedDjangoJqueryTranslationAdmin
+try:  # add modeltranslation
+    from modeltranslation.translator import translator
+    from modeltranslation.admin import TabbedDjangoJqueryTranslationAdmin
+except ImportError:
+    pass
 
 from simple_help.models import PageHelp
 from simple_help.forms import PageHelpAdminForm
-from simple_help.translation import PageHelpTranslationOptions
+from simple_help.utils import modeltranslation
+try:
+    from simple_help.translation import PageHelpTranslationOptions
+except ImportError:
+    pass
 
 
 __all__ = [
@@ -20,7 +27,7 @@ __all__ = [
 ]
 
 
-class PageHelpAdmin(TabbedDjangoJqueryTranslationAdmin):
+class PageHelpAdmin(TabbedDjangoJqueryTranslationAdmin if modeltranslation() else admin.ModelAdmin):
     """
     Customize PageHelp model for admin area.
     """
@@ -32,8 +39,9 @@ class PageHelpAdmin(TabbedDjangoJqueryTranslationAdmin):
     form = PageHelpAdminForm
 
 
-# registering translation options
-translator.register(PageHelp, PageHelpTranslationOptions)
+if modeltranslation():
+    # registering translation options
+    translator.register(PageHelp, PageHelpTranslationOptions)
 
 
 # registering admin custom classes
