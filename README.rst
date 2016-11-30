@@ -12,7 +12,7 @@ Installation
 ------------
 * Obtain your copy of source code from the git repository: ``git clone https://github.com/DCOD-OpenSource/django-simple-help.git``.
 * Run ``python ./setup.py install`` from repository source tree or unpacked archive. Or use pip: ``pip install django-simple-help``.
-* If you want to use simple help with ``django-modeltranslation`` - install with additional requirements ``pip install django-simple-help[modeltranslation]``.
+* If you want to use simple help with `django-modeltranslation <https://github.com/deschler/django-modeltranslation/>`_ - install with additional requirements ``pip install django-simple-help[modeltranslation]``.
 
 Configuration
 -------------
@@ -29,7 +29,7 @@ Add ``"simple_help"`` and ``"redactor"`` to ``settings.INSTALLED_APPS``.
 
     )
 
-If you want to use simple help with ``django-modeltranslation`` - add ``"modeltranslation"`` to ``settings.INSTALLED_APPS``.
+If you want to use simple help with `django-modeltranslation <https://github.com/deschler/django-modeltranslation/>`_ - add ``"modeltranslation"`` to ``settings.INSTALLED_APPS``.
 
     INSTALLED_APPS = (
         ...,
@@ -55,9 +55,22 @@ Add to project settings something like:
 
     ]
 
+Usage
+-----
 Add to you page view context variable named ``PAGE_HELP`` with a value of help you want to show.
 Load ``help_tags`` into page template and call ``page_help`` tag.
 If you use `Bootstrap <https://getbootstrap.com/>`_ in you project include ``simple_help/includes/help_button.html`` and ``simple_help/includes/help_dialog.html`` templates to base template, else override default templates as you wish.
+
+For example:
+
+.. code-block::
+
+    {% load help_tags %}
+
+    {% page_help as page_help %}
+    {% include "simple_help/includes/help_button.html" %}
+    {% include "simple_help/includes/help_dialog.html" %}
+
 
 Licensing
 ---------

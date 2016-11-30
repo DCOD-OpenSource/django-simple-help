@@ -11,7 +11,7 @@ from setuptools import (
 
 
 # metadata
-VERSION = (0, 5, 1)
+VERSION = (0, 5, 3)
 __version__ = ".".join(map(str, VERSION))
 setup(
     name="django-simple-help",
@@ -29,7 +29,7 @@ setup(
     description="Django reusable application providing page help",
     license="MIT",
     url="https://github.com/DCOD-OpenSource/django-simple-help/",
-    download_url="https://github.com/DCOD-OpenSource/django-simple-help/archive/{}.tar.gz".format(__version__),
+    download_url="https://github.com/DCOD-OpenSource/django-simple-help/archive/{version}.tar.gz".format(**{"version": __version__, }),
     zip_safe=False,
     include_package_data=True,
     classifiers=[
