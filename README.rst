@@ -18,26 +18,20 @@ Configuration
 -------------
 Add ``"simple_help"`` and ``"redactor"`` to ``settings.INSTALLED_APPS``.
 
-    INSTALLED_APPS = (
-        ...,
+.. code-block:: python
 
+    INSTALLED_APPS += (
         "redactor",
-
         "simple_help",
-
-        ...,
-
     )
+
 
 If you want to use simple help with `django-modeltranslation <https://github.com/deschler/django-modeltranslation/>`_ - add ``"modeltranslation"`` to ``settings.INSTALLED_APPS``.
 
-    INSTALLED_APPS = (
-        ...,
+.. code-block:: python
 
+    INSTALLED_APPS += (
         "modeltranslation",
-
-        ...,
-
     )
 
 
@@ -45,15 +39,14 @@ And additionally, configure these apps as you want.
 
 Add to project settings something like:
 
+.. code-block:: python
+
     INDEX_PAGE_HELP, CONTACT_PAGE_HELP = range(1, 3)
-
     SIMPLE_HELP_CHOICES = [
-
         [INDEX_PAGE_HELP, "Index page help"],
-
         [CONTACT_PAGE_HELP, "Contact page help"],
-
     ]
+
 
 Usage
 -----
@@ -63,7 +56,7 @@ If you use `Bootstrap <https://getbootstrap.com/>`_ in you project include ``sim
 
 For example:
 
-.. code-block::
+.. code-block:: django
 
     {% load help_tags %}
 

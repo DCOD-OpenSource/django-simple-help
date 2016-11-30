@@ -11,7 +11,7 @@ from setuptools import (
 
 
 # metadata
-VERSION = (0, 5, 3)
+VERSION = (0, 5, 4)
 __version__ = ".".join(map(str, VERSION))
 setup(
     name="django-simple-help",
