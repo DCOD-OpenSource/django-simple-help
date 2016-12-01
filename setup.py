@@ -11,13 +11,14 @@ from setuptools import (
 
 
 # metadata
-VERSION = (0, 5, 4)
+VERSION = (0, 5, 5)
 __version__ = ".".join(map(str, VERSION))
 setup(
     name="django-simple-help",
     version=__version__,
     packages=find_packages(),
     install_requires=[
+        "Django",
         "django-annoying==0.10.3",
         "django-wysiwyg-redactor==0.4.9.1",
     ],
@@ -38,6 +39,13 @@ setup(
         "Operating System :: Unix",
         "Programming Language :: Python :: 2.6",
         "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
         "Topic :: Utilities",
+        "Framework :: Django :: 1.5",
+        "Framework :: Django :: 1.6",
+        "Framework :: Django :: 1.7",
+        "Framework :: Django :: 1.8",
+        "Framework :: Django :: 1.9",
+        "Framework :: Django :: 1.10",
     ]
 )

@@ -10,7 +10,7 @@ A django-simple-help documentation
 
 Installation
 ------------
-* Obtain your copy of source code from the git repository: ``git clone https://github.com/DCOD-OpenSource/django-simple-help.git``.
+* Obtain your copy of source code from the git repository: ``git clone https://github.com/DCOD-OpenSource/django-simple-help.git``. Or download the latest release from https://github.com/DCOD-OpenSource/django-simple-help/tags/.
 * Run ``python ./setup.py install`` from repository source tree or unpacked archive. Or use pip: ``pip install django-simple-help``.
 * If you want to use simple help with `django-modeltranslation <https://github.com/deschler/django-modeltranslation/>`_ - install with additional requirements ``pip install django-simple-help[modeltranslation]``.
 
