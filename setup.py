@@ -11,7 +11,7 @@ from setuptools import (
 
 
 # metadata
-VERSION = (0, 5, 5)
+VERSION = (0, 5, 6)
 __version__ = ".".join(map(str, VERSION))
 setup(
     name="django-simple-help",
@@ -23,7 +23,9 @@ setup(
         "django-wysiwyg-redactor==0.4.9.1",
     ],
     extras_require={
-        "modeltranslation": ["django-modeltranslation==0.12", ],
+        "modeltranslation": [
+            "django-modeltranslation==0.12",
+        ],
     },
     author="Alexei Andrushievich",
     author_email="vint21h@vint21h.pp.ua",

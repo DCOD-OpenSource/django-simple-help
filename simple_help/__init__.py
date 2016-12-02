@@ -7,16 +7,6 @@ from __future__ import unicode_literals
 
 
 __all__ = [
-    "models",
-    "templatetags",
-    "translation",
-    "settings",
-    "admin",
-    "forms",
-    "migrations",
-    "south_migrations",
-    "apps",
-    "utils",
     "default_app_config",
 ]
 
