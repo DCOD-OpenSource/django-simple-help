@@ -22,7 +22,6 @@
 build/*
 dist/*
 *.egg-info/*
-tmp/*
 logs/*
 parts
 .project
@@ -31,3 +30,5 @@ parts
 media/*
 index.html
 docs.zip
+.autoenv
+tmp
