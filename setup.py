@@ -11,11 +11,9 @@ from setuptools import (
 
 
 # metadata
-VERSION = (0, 6, 0)
-__version__ = ".".join(map(str, VERSION))
 setup(
     name="django-simple-help",
-    version=__version__,
+    version="0.6.0",
     packages=find_packages(),
     install_requires=[
         "Django",
