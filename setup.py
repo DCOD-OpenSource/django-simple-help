@@ -11,7 +11,7 @@ from setuptools import (
 
 
 # metadata
-VERSION = (0, 6, 0)
+VERSION = (0, 6, 1)
 __version__ = ".".join(map(str, VERSION))
 setup(
     name="django-simple-help",
@@ -20,11 +20,11 @@ setup(
     install_requires=[
         "Django",
         "django-annoying==0.10.3",
-        "django-wysiwyg-redactor==0.4.9.1",
+        "django-wysiwyg-redactor==0.5.1",
     ],
     extras_require={
         "modeltranslation": [
-            "django-modeltranslation==0.12",
+            "django-modeltranslation==0.12.1",
         ],
     },
     author="Alexei Andrushievich",
@@ -49,5 +49,6 @@ setup(
         "Framework :: Django :: 1.8",
         "Framework :: Django :: 1.9",
         "Framework :: Django :: 1.10",
+        "Framework :: Django :: 1.11",
     ]
 )
